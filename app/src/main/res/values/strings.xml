@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">VkLikesRemover</string>
+
+    <string name="defended_key">s5EHSEaCvJu6h1B4eoX8</string>
+    <string name="serial_key">98c8d47f98c8d47f98c8d47fa698ad1b91998c898c8d47fc349f4846a4f1bb0f3b65bb3</string>
+
+    <integer name="com_vk_sdk_AppId">6672366</integer>
+</resources>
