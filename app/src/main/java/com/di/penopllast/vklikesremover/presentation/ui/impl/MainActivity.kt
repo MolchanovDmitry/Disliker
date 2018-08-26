@@ -1,42 +1,29 @@
-package com.di.penopllast.vklikesremover
+package com.di.penopllast.vklikesremover.presentation.ui.impl
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.di.penopllast.vklikesremover.R
 
-import com.di.penopllast.vklikesremover.Util.Utils
-import com.di.penopllast.vklikesremover.application.DislikerApp
-import com.di.penopllast.vklikesremover.data.repository.RepositoryNetwork
-import com.di.penopllast.vklikesremover.data.repository.RepositoryPreference
+import com.di.penopllast.vklikesremover.application.Util.Utils
+import com.di.penopllast.vklikesremover.presentation.presenter.MainPresenter
+import com.di.penopllast.vklikesremover.presentation.presenter.impl.MainPresenterImpl
+import com.di.penopllast.vklikesremover.presentation.ui.MainView
 import com.vk.sdk.VKAccessToken
 import com.vk.sdk.VKCallback
 import com.vk.sdk.VKSdk
 import com.vk.sdk.api.VKError
 
-import javax.inject.Inject
 
+class MainActivity : AppCompatActivity(), MainView {
 
-class MainActivity : AppCompatActivity() {
-
-    var repositoryPreference: RepositoryPreference? = null
-    @Inject set
-    var repositoryNetwork: RepositoryNetwork? = null
-    @Inject set
+    private var presenter: MainPresenter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        DislikerApp.componentsHolder?.appComponent?.inject(this)
-
-        val token = repositoryPreference?.token as String
-        if (token.isEmpty()) {
-            VKSdk.login(this, "friends")
-        } else {
-            repositoryNetwork?.runTestQuery(token)
-        }
+        presenter = MainPresenterImpl(this)
     }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         if (!// Пользователь успешно авторизовался
@@ -44,10 +31,7 @@ class MainActivity : AppCompatActivity() {
                 VKSdk.onActivityResult(requestCode, resultCode, data, object : VKCallback<VKAccessToken> {
                     override fun onResult(res: VKAccessToken) {
                         Utils.print("Успершная авторизация")
-                        val token = res.accessToken
-                        Utils.print("Token = $token")
-                        repositoryPreference?.token = token
-                        repositoryNetwork?.runTestQuery(token)
+                        presenter?.onActivityResult(res.accessToken)
                     }
 
                     override fun onError(error: VKError) {
@@ -57,5 +41,9 @@ class MainActivity : AppCompatActivity() {
             Utils.print("Третий вариант")
             super.onActivityResult(requestCode, resultCode, data)
         }
+    }
+
+    override fun loginVk() {
+        VKSdk.login(this, "friends")
     }
 }

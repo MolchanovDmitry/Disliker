@@ -1,4 +1,4 @@
-package com.di.penopllast.vklikesremover.Util
+package com.di.penopllast.vklikesremover.application.Util
 
 import android.util.Log
 

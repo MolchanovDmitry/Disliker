@@ -2,8 +2,7 @@ package com.di.penopllast.vklikesremover.application
 
 import android.app.Application
 
-import com.di.penopllast.vklikesremover.Util.Utils
-import com.di.penopllast.vklikesremover.data.api.VkApi
+import com.di.penopllast.vklikesremover.application.Util.Utils
 import com.di.penopllast.vklikesremover.di.ComponentsHolder
 import com.vk.sdk.VKAccessToken
 import com.vk.sdk.VKAccessTokenTracker
@@ -27,7 +26,7 @@ class DislikerApp : Application() {
         VKSdk.initialize(applicationContext)
 
         componentsHolder = ComponentsHolder(this)
-        componentsHolder!!.init()
+        componentsHolder?.init()
     }
 
     companion object {

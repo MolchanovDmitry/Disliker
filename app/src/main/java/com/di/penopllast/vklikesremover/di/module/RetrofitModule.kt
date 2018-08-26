@@ -3,8 +3,7 @@ package com.di.penopllast.vklikesremover.di.module
 import android.annotation.SuppressLint
 import android.content.Context
 
-import com.di.penopllast.vklikesremover.BuildConfig
-import com.di.penopllast.vklikesremover.Util.Utils
+import com.di.penopllast.vklikesremover.application.Util.Utils
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 

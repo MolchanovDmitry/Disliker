@@ -1,12 +1,14 @@
 package com.di.penopllast.vklikesremover.di
 
 
-import com.di.penopllast.vklikesremover.MainActivity
+import com.di.penopllast.vklikesremover.presentation.ui.impl.MainActivity
 import com.di.penopllast.vklikesremover.application.DislikerApp
 import com.di.penopllast.vklikesremover.data.repository.impl.RepositoryNetworkImpl
 import com.di.penopllast.vklikesremover.di.module.ApiModule
 import com.di.penopllast.vklikesremover.di.module.ContextModule
 import com.di.penopllast.vklikesremover.di.module.RepositoryModule
+import com.di.penopllast.vklikesremover.presentation.presenter.MainPresenter
+import com.di.penopllast.vklikesremover.presentation.presenter.impl.MainPresenterImpl
 
 import javax.inject.Singleton
 
@@ -17,7 +19,7 @@ import dagger.Component
 @Component(modules = arrayOf(ContextModule::class, RepositoryModule::class, ApiModule::class))
 interface AppComponent {
 
-    fun inject(mainActivity: MainActivity)
+    fun inject(mainPresenter: MainPresenterImpl)
 
     fun inject(repositoryNetwork: RepositoryNetworkImpl)
 
