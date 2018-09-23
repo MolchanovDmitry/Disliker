@@ -1,8 +1,8 @@
 package com.di.penopllast.vklikesremover.data.repository
 
-import com.di.penopllast.vklikesremover.entity.ResponseFaveGetPosts
-import java.util.*
+import com.di.penopllast.vklikesremover.entity.RootRetrofitResponse
 
 interface RepositoryNetwork {
-    fun runTestQuery(token: String, callback: ResultResponse<ResponseFaveGetPosts>)
+    fun runTestQuery(token: String, callback: CommonCallback<RootRetrofitResponse>)
+    fun getUserInfo(token: String, userId: Int, callback: CommonCallback<RootRetrofitResponse>)
 }

@@ -3,7 +3,7 @@ package com.di.penopllast.vklikesremover.entity
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class RootFaveGetPost {
+class RootFaveGetPost : RootRetrofitResponse {
 
     @SerializedName("response")
     @Expose
