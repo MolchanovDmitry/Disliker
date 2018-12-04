@@ -1,13 +1,12 @@
-package com.di.penopllast.vklikesremover.entity
+package com.di.penopllast.vklikesremover.entity.like
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Size {
+class Size(@SerializedName("type")
+           @Expose
+           val type: String) {
 
-    @SerializedName("type")
-    @Expose
-    val type: String? = null
     @SerializedName("url")
     @Expose
     val url: String? = null

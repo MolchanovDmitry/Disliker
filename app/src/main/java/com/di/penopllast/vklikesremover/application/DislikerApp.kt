@@ -11,7 +11,9 @@ import com.vk.sdk.VKSdk
 
 class DislikerApp : Application() {
 
-    internal val vkAccessTokenTracker: VKAccessTokenTracker = object : VKAccessTokenTracker() {
+    internal var componentsHolder: ComponentsHolder? = null
+
+    private val vkAccessTokenTracker: VKAccessTokenTracker = object : VKAccessTokenTracker() {
         override fun onVKAccessTokenChanged(oldToken: VKAccessToken?, newToken: VKAccessToken?) {
             if (newToken == null) {
                 // VKAccessToken is invalid
@@ -22,6 +24,7 @@ class DislikerApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        app = this
         vkAccessTokenTracker.startTracking()
         VKSdk.initialize(applicationContext)
 
@@ -30,10 +33,7 @@ class DislikerApp : Application() {
     }
 
     companion object {
-
-        var componentsHolder: ComponentsHolder? = null
+        var app: DislikerApp? = null
             private set
     }
-
-
 }

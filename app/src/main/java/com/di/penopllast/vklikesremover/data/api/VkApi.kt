@@ -1,6 +1,6 @@
 package com.di.penopllast.vklikesremover.data.api
 
-import com.di.penopllast.vklikesremover.entity.RootFaveGetPost
+import com.di.penopllast.vklikesremover.entity.like.RootFaveGetPost
 import com.di.penopllast.vklikesremover.entity.user.RootUser
 
 import retrofit2.Call

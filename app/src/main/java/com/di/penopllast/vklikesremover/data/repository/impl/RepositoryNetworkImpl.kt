@@ -6,7 +6,7 @@ import com.di.penopllast.vklikesremover.application.DislikerApp
 import com.di.penopllast.vklikesremover.data.api.VkApi
 import com.di.penopllast.vklikesremover.data.repository.CommonCallback
 import com.di.penopllast.vklikesremover.data.repository.RepositoryNetwork
-import com.di.penopllast.vklikesremover.entity.RootFaveGetPost
+import com.di.penopllast.vklikesremover.entity.like.RootFaveGetPost
 import com.di.penopllast.vklikesremover.entity.RootRetrofitResponse
 import com.di.penopllast.vklikesremover.entity.user.RootUser
 
@@ -22,7 +22,7 @@ class RepositoryNetworkImpl : RepositoryNetwork {
         @Inject set
 
     init {
-        DislikerApp.componentsHolder?.appComponent?.inject(this)
+        DislikerApp.app?.componentsHolder?.appComponent?.inject(this)
     }
 
     override fun runTestQuery(token: String, callback: CommonCallback<RootRetrofitResponse>) {
@@ -32,7 +32,6 @@ class RepositoryNetworkImpl : RepositoryNetwork {
                     override fun onResponse(call: Call<RootFaveGetPost>,
                                             response: Response<RootFaveGetPost>) {
                         callback.onSuccess(response.body())
-                        Utils.print("Нам вернулся объект")
                     }
 
                     override fun onFailure(call: Call<RootFaveGetPost>, t: Throwable) {
