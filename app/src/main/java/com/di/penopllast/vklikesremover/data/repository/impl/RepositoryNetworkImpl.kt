@@ -25,7 +25,7 @@ class RepositoryNetworkImpl : RepositoryNetwork {
         DislikerApp.app?.componentsHolder?.appComponent?.inject(this)
     }
 
-    override fun runTestQuery(token: String, callback: CommonCallback<RootRetrofitResponse>) {
+    override fun getPosts(token: String, callback: CommonCallback<RootRetrofitResponse>) {
 
         vkApi?.getLikes(0, 2, 1, token, VK_VERSION)?.enqueue(
                 object : Callback<RootFaveGetPost> {
