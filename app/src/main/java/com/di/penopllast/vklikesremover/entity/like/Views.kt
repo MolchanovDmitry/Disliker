@@ -3,10 +3,9 @@ package com.di.penopllast.vklikesremover.entity.like
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Views {
+data class Views(
 
-    @SerializedName("count")
-    @Expose
-    val count: Int? = null
-
-}
+        @SerializedName("count")
+        @Expose
+        val count: Int? = null
+)

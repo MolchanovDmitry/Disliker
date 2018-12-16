@@ -1,8 +1,13 @@
 package com.di.penopllast.vklikesremover.application.Util
 
-interface Const {
+class Const private constructor() {
+    init {
+        throw AssertionError()
+    }
+
     companion object {
-        const val PREF_TOKEN = "TOKEN"
-        const val PREF_USER_ID = "USER_ID"
+
+        var PREF_TOKEN = "TOKEN"
+        var PREF_USER_ID = "USER_ID"
     }
 }

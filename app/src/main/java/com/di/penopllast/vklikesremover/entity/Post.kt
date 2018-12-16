@@ -1,6 +1,6 @@
 package com.di.penopllast.vklikesremover.entity
 
-class Post(
+data class Post(
         val id: Int,
         val ownerId: Int,
         val mainImage: String?,

@@ -4,10 +4,9 @@ import com.di.penopllast.vklikesremover.entity.RootRetrofitResponse
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class RootUser : RootRetrofitResponse {
+data class RootUser(
+        @SerializedName("response")
+        @Expose
+        var response: List<UserInfo>? = null
 
-    @SerializedName("response")
-    @Expose
-    var response: List<UserInfo>? = null
-
-}
+) : RootRetrofitResponse

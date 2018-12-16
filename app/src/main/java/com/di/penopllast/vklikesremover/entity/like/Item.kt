@@ -3,11 +3,11 @@ package com.di.penopllast.vklikesremover.entity.like
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Item(@SerializedName("id")
-           @Expose
-           val id: Int, @SerializedName("owner_id")
-           @Expose
-           val ownerId: Int) {
+data class Item(@SerializedName("id")
+                @Expose
+                val id: Int, @SerializedName("owner_id")
+                @Expose
+                val ownerId: Int) {
 
     @SerializedName("from_id")
     @Expose

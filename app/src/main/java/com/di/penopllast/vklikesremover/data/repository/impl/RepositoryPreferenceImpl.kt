@@ -1,8 +1,8 @@
 package com.di.penopllast.vklikesremover.data.repository.impl
 
 import android.content.Context
-
 import com.di.penopllast.vklikesremover.application.Util.Const
+
 import com.di.penopllast.vklikesremover.data.repository.RepositoryPreference
 import com.ironz.binaryprefs.BinaryPreferencesBuilder
 import com.ironz.binaryprefs.Preferences

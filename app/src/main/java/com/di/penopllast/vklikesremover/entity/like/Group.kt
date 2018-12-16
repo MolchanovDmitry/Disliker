@@ -3,7 +3,7 @@ package com.di.penopllast.vklikesremover.entity.like
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Group(@SerializedName("id")
+data class Group(@SerializedName("id")
             @Expose
             val id: Int) {
 
